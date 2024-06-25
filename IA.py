@@ -15,8 +15,8 @@ from nltk.sentiment import SentimentIntensityAnalyzer
 # nltk.download('vader_lexicon')
 # nltk.download('wordnet')
 
-file_path = './PerguntasRespostas.csv'
-data = pd.read_csv(file_path)
+file_path = './csv/PerguntasRespostas.csv'
+data = pd.read_csv(file_path)   
 
 remove_chars = "?.;!:"
 def clean_text(text):

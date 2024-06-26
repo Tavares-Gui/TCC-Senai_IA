@@ -11,9 +11,9 @@ from nltk.sentiment import SentimentIntensityAnalyzer
 
 # nltk.download('rslp')
 # nltk.download('punkt')
+# nltk.download('wordnet')
 # nltk.download('stopwords')
 # nltk.download('vader_lexicon')
-# nltk.download('wordnet')
 
 file_path = './csv/PerguntasRespostas.csv'
 data = pd.read_csv(file_path)   

@@ -1,0 +1,4 @@
+Caso a IA n saiba de alguma pergunta, a pergunta é para um banco e retreinar a IA
+Melhorar o modelo
+Adicionar mais poerguntas alem das mais frequentes
+Aumentar o banco de dados

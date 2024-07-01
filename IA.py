@@ -9,7 +9,7 @@ from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer, RSLPStemmer
 from nltk.sentiment import SentimentIntensityAnalyzer
 
-file_path = './csv/PerguntasRespostas.csv'
+file_path = './csv/PerguntasRespostasBig.csv'
 data = pd.read_csv(file_path)
 
 remove_chars = "?.;!:"
@@ -21,13 +21,9 @@ def remove_stopwords(tokens):
     return [word for word in tokens if word.lower() not in stop_words]
 
 lemmatizer = WordNetLemmatizer()
-stemmer = RSLPStemmer()
 
 def lemmatize_tokens(tokens):
     return [lemmatizer.lemmatize(token) for token in tokens]
-
-def stem_tokens(tokens):
-    return [stemmer.stem(token) for token in tokens]
 
 sia = SentimentIntensityAnalyzer()
 
@@ -41,7 +37,6 @@ all_answers = []
 respostas = data['Respostas']
 
 apply_lemmatization = True
-apply_stemming = True
 
 for text in perguntas:
     cleaned_questions = clean_text(text)
@@ -49,8 +44,6 @@ for text in perguntas:
     questions = remove_stopwords(questions)
     if apply_lemmatization:
         questions = lemmatize_tokens(questions)
-    if apply_stemming:
-        questions = stem_tokens(questions)
     all_questions.extend(questions)
 
 fdq = FreqDist(all_questions)

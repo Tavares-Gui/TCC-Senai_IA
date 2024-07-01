@@ -1,0 +1,62 @@
+import nltk
+import pandas as pd
+import random
+import os
+from nltk.tokenize import word_tokenize
+from nltk.corpus import stopwords
+from nltk.classify import NaiveBayesClassifier
+from nltk.classify.util import accuracy as nltk_accuracy
+
+# Certifique-se de que o caminho do arquivo CSV está correto
+file_path = './csv/PerguntasRespostasBig.csv'
+
+if not os.path.exists(file_path):
+    raise FileNotFoundError(f"Arquivo não encontrado: {file_path}")
+
+# Carregar o arquivo CSV
+data = pd.read_csv(file_path)
+
+# Verificar se o arquivo CSV está formatado corretamente
+if 'Perguntas' not in data.columns or 'Respostas' not in data.columns:
+    raise ValueError("O arquivo CSV deve conter as colunas 'Perguntas' e 'Respostas'")
+
+# Pré-processamento de dados
+stop_words = set(stopwords.words('portuguese'))
+
+def preprocess(sentence):
+    tokens = word_tokenize(sentence.lower())
+    filtered_tokens = [token for token in tokens if token.isalnum() and token not in stop_words]
+    return filtered_tokens
+
+# Criar um conjunto de dados de treinamento
+def prepare_data(data):
+    dataset = []
+    for _, row in data.iterrows():
+        question = preprocess(row['Perguntas'])
+        response = row['Respostas']
+        dataset.append((dict([(token, True) for token in question]), response))
+    return dataset
+
+dataset = prepare_data(data)
+
+# Embaralhar o conjunto de dados e dividir em treinamento e teste
+random.shuffle(dataset)
+train_data = dataset[:int(len(dataset) * 0.8)]
+test_data = dataset[int(len(dataset) * 0.2):]
+
+# Treinar o classificador Naive Bayes
+classifier = NaiveBayesClassifier.train(train_data)
+
+# Avaliar a precisão do classificador
+print("Accuracy:", nltk_accuracy(classifier, test_data))
+
+# Exibir as informações mais informativas
+classifier.show_most_informative_features(10)
+
+# Salvar o classificador treinado para uso futuro
+import pickle
+
+with open('chatbot_classifier.pkl', 'wb') as model_file:
+    pickle.dump(classifier, model_file)
+
+print("Modelo treinado salvo como 'chatbot_classifier.pkl'.")

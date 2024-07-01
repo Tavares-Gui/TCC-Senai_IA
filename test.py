@@ -1,29 +1,31 @@
-import nltk
-import pandas as pd
-import random
 import pickle
+from sklearn.feature_extraction.text import TfidfVectorizer
+import nltk
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 
-# Carregar o classificador treinado a partir do arquivo .pkl
-model_path = 'chatbot_classifier.pkl'
+# Carregar o classificador treinado e o vetor TF-IDF
+with open('chatbot_classifier_tfidf.pkl', 'rb') as model_file:
+    clf = pickle.load(model_file)
 
-with open(model_path, 'rb') as model_file:
-    classifier = pickle.load(model_file)
+with open('tfidf_vectorizer.pkl', 'rb') as vectorizer_file:
+    vectorizer = pickle.load(vectorizer_file)
 
 # Função para pré-processar a pergunta
+nltk.download('punkt')
+nltk.download('stopwords')
 stop_words = set(stopwords.words('portuguese'))
 
 def preprocess(sentence):
     tokens = word_tokenize(sentence.lower())
     filtered_tokens = [token for token in tokens if token.isalnum() and token not in stop_words]
-    return filtered_tokens
+    return ' '.join(filtered_tokens)
 
 # Função para prever a resposta a uma nova pergunta
-def get_response(classifier, question):
+def get_response(classifier, vectorizer, question):
     processed_question = preprocess(question)
-    features = dict([(token, True) for token in processed_question])
-    return classifier.classify(features)
+    question_vector = vectorizer.transform([processed_question])
+    return classifier.predict(question_vector)[0]
 
 # Exemplo de uso
 example_questions = [
@@ -33,7 +35,7 @@ example_questions = [
 ]
 
 for question in example_questions:
-    response = get_response(classifier, question)
+    response = get_response(clf, vectorizer, question)
     print(f"Pergunta: {question}")
     print(f"Resposta: {response}")
     print()
@@ -43,5 +45,5 @@ while True:
     user_input = input("Você: ")
     if user_input.lower() == "sair":
         break
-    response = get_response(classifier, user_input)
+    response = get_response(clf, vectorizer, user_input)
     print("Bot:", response)

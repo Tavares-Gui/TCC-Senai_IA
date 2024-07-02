@@ -2,3 +2,10 @@ Caso a IA n saiba de alguma pergunta, a pergunta é para um banco e retreinar a 
 Melhorar o modelo
 Adicionar mais poerguntas alem das mais frequentes
 Aumentar o banco de dados
+
+
+
+
+
+Horário de saida do fretado
+O que acontece se o fretado quebrar 

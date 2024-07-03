@@ -4,14 +4,12 @@ import nltk
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 
-with open('chatbot_classifier_tfidf.pkl', 'rb') as model_file:
+with open('chatbot_classifier_rf.pkl', 'rb') as model_file:
     clf = pickle.load(model_file)
 
 with open('tfidf_vectorizer.pkl', 'rb') as vectorizer_file:
     vectorizer = pickle.load(vectorizer_file)
 
-nltk.download('punkt')
-nltk.download('stopwords')
 stop_words = set(stopwords.words('portuguese'))
 
 def preprocess(sentence):

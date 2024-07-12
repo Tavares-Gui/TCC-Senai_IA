@@ -7,25 +7,46 @@ Aumentar o banco de dados
 
 
 
-Aprendiz pode pegar Fretado?
-O Fretado me espera no ponto?
-Estagiário pode pegar Fretado?
-Qual é o valor da taxa do Fretado?
-Como faco para trocar a minha rota?
-A Rimatur possui aplicativo ou site?
-É preciso pagar para utilizar o Fretado?
-O que fazer caso haja atraso no Fretado?
-Onde fica a garagem, ou, sede da Rimatur?
-Quais sao os horários de saída do fretado?
-Quantas garagens, ou, sedes a Rimatur possui?
-Como consigo descobrir a rota do meu Fretado?
-Qual é o motivo de passar o crachá no Fretado?
-O que acontece se o Fretado quebrar durante a viagem?
-O que acontece se eu nao utilizar o crachá no Fretado?
-A Rimatur possui outros veículos além de onibus e vans?
-Onde posso encontrar o responsável pela Rimatur na Bosch?
-O Fretado possui lugar para pessoas com dificiencia física?
-Caso nao tenha lugar no meu Fretado, qual é o procedimento?
-Seu eu nao utlizo o Fretado, eu posso parar de pagar a taxa?
-Caso eu perca um item pessoal no Fretado, como faco para recuperar meu item?
-Posso solicitar que a rota seja alterada para que eu consiga pegar o Fretado?
+"Aprendiz pode pegar Fretado?","Todos os colaboradores desde estajam cadastrados"
+"O Fretado me espera no ponto?","Conforme planejado no cadastro"
+"Estagiário pode pegar Fretado?",Todos os colaboradores desde estajam cadastrados"
+"Qual é o valor da taxa do Fretado?","(Redirecionar para o RH)"
+"Como faco para trocar a minha rota?","Atraves do formuladrio de cadastro"
+"A Rimatur possui aplicativo ou site?","Aplicativo"
+"É preciso pagar para utilizar o Fretado?","(Redirecionar para o RH)"
+"O que fazer caso haja atraso no Fretado?","Acompanhar o aplicativo"
+"Quais sao os horários de saída do fretado?","1T - 15:15, ADM - 17:15, 2T - 00:15, 3T - 06:15"
+"Como consigo descobrir a rota do meu Fretado?","Procurar o Roberto (FCM)"
+"Qual é o motivo de passar o crachá no Fretado?","Questão de Segurança e Gestão"
+"O que acontece se o Fretado quebrar durante a viagem?","O Fornecedor disponibilizara recursos alternativas"
+"O que acontece se eu nao utilizar o crachá no Fretado?","O sistemas não vai exengar o usuario"
+"A Rimatur possui outros veículos além de onibus e vans?","onibus, micro e van"
+"Onde posso encontrar o responsável pela Rimatur na Bosch?","FCM"
+"O Fretado possui lugar para pessoas com dificiencia física?","Conforme demanda"
+"Caso nao tenha lugar no meu Fretado, qual é o procedimento?","Ocupação conforme demanda/cadastro"
+"Seu eu nao utlizo o Fretado, eu posso parar de pagar a taxa?","(Redirecionar para o RH)"
+"Caso eu perca um item pessoal no Fretado, como faco para recuperar meu item?","Entrar em Contato de Achados e Perdidos do fornecedor"
+"Posso solicitar que a rota seja alterada para que eu consiga pegar o Fretado?","Rotas conforme cadastro"
+
+
+
+"Todos os colaboradores desde estajam cadastrados"
+"Conforme planejado no cadastro"
+"Todos os colaboradores desde estajam cadastrados"
+"(Redirecionar para o RH)"
+"Atraves do formuladrio de cadastro"
+"Aplicativo"
+"(Redirecionar para o RH)"
+"Acompanhar o aplicativo"
+"1T - 15:15, ADM - 17:15, 2T - 00:15, 3T - 06:15"
+"Procurar o Roberto (FCM)"
+"Questão de Segurança e Gestão"
+"O Fornecedor disponibilizara recursos alternativas"
+"O sistemas não vai exengar o usuario"
+"onibus, micro e van"
+"FCM"
+"Conforme demanda"
+"Ocupação conforme demanda/cadastro"
+"(Redirecionar para o RH)"
+"Entrar em Contato de Achados e Perdidos do fornecedor"
+"Rotas conforme cadastro"

@@ -35,6 +35,7 @@ param_grid = {
 }
 
 rf = RandomForestClassifier(random_state=42)
+
 grid_search = GridSearchCV(estimator=rf, param_grid=param_grid, cv=5)
 grid_search.fit(X_train, y_train)
 

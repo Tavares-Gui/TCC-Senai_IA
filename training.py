@@ -28,9 +28,9 @@ y = data['Respostas']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
 
 param_grid = {
-    'n_estimators': [50, 100, 200],
-    'max_depth': [None, 10, 20],
-    'min_samples_split': [2, 5, 15],
+    'n_estimators': [75, 100, 200],
+    'max_depth': [None, 20, 40],
+    'min_samples_split': [2, 8, 20],
     'min_samples_leaf': [1, 5, 7],
     'max_features': ['sqrt'],
     'warm_start': [False],

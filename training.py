@@ -1,13 +1,11 @@
+import pickle
 import pandas as pd
-import numpy as np
-from sklearn.feature_extraction.text import TfidfVectorizer
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.metrics import accuracy_score, classification_report
-import nltk
-from nltk.tokenize import word_tokenize
-from nltk.corpus import stopwords
-import pickle
 
 file_path = './csv/PerguntasRespostasBig.csv'
 data = pd.read_csv(file_path)
@@ -28,12 +26,12 @@ y = data['Respostas']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
 
 param_grid = {
-    'n_estimators': [75, 100, 200],
-    'max_depth': [None, 20, 40],
+    'n_estimators': [75, 100, 225],
+    'max_depth': [None, 25, 50],
     'min_samples_split': [2, 8, 20],
-    'min_samples_leaf': [1, 5, 7],
+    'min_samples_leaf': [1, 5, 12],
     'max_features': ['sqrt'],
-    'warm_start': [False],
+    'warm_start': [True],
     'bootstrap': [True]
 }
 

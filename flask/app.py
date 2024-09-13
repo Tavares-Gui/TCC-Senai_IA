@@ -1,3 +1,10 @@
+# pip install Flask scikit-learn nltk
+
+# import nltk
+# nltk.download('punkt')
+# nltk.download('stopwords')
+# nltk.download('punkt_tab')
+
 from flask import Flask, request, jsonify
 import pickle
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -6,11 +13,10 @@ from nltk.corpus import stopwords
 
 app = Flask(__name__)
 
-# Carregar o modelo e o vectorizer
-with open('chatbot_classifier_rf.pkl', 'rb') as model_file:
+with open('../chatbot_classifier_rf.pkl', 'rb') as model_file:
     clf = pickle.load(model_file)
 
-with open('tfidf_vectorizer.pkl', 'rb') as vectorizer_file:
+with open('../tfidf_vectorizer.pkl', 'rb') as vectorizer_file:
     vectorizer = pickle.load(vectorizer_file)
 
 stop_words = set(stopwords.words('portuguese'))
